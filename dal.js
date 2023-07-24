@@ -1,9 +1,14 @@
+const MONGODB_URI = 'mongodb+srv://carolmarol:carolmarol5@myproject.y94zuww.mongodb.net/?retryWrites=t>'
+const connectToMongo = require('./db');
+const mongoose = require('mongoose');
 const MongoClient = require('mongodb').MongoClient;
-const url         = 'mongodb://localhost:27017';
-let db            = null;
+const uri = MONGODB_URI;
+const client = new MongoClient(uri);
+let db = null;
 
 // connect to mongo
-MongoClient.connect(url, {useUnifiedTopology: true}, function(err, client) {
+// connect to mongo
+MongoClient.connect(uri, {useUnifiedTopology: true}, function(err, client) {
     if (err) {
         console.log('Error connecting to db:', err);
     } else {
